@@ -5,7 +5,6 @@ import degit from 'degit';
 import { execSync } from 'child_process';
 import path from 'path';
 import fs from 'fs/promises';
-import { log } from 'console';
 
 // ============================================
 // ENTERPRISE SYSTEMS CONFIGURATION
@@ -19,19 +18,19 @@ const CATEGORIES = [
       {
         name: 'Stock Management System',
         value: 'stock_management',
-        repo: 'your-github-username/stock-management-system',
+        repo: 'mugisha857/stockhub-sms-app',
         tech: 'Node.js + React'
       },
       {
         name: 'Stock Inventory Management System',
         value: 'stock_inventory_management',
-        repo: 'your-github-username/stock-inventory-management-system',
+        repo: 'mugisha857/sims-app',
         tech: 'Node.js + React'
       },
       {
         name: 'Asset Inventory',
         value: 'asset_inventory',
-        repo: 'your-github-username/asset-inventory',
+        repo: 'mugisha857/ams',
         tech: 'Node.js + React'
       }
     ]
@@ -43,25 +42,25 @@ const CATEGORIES = [
       {
         name: 'Parking Space Sales Management System',
         value: 'parking_space_sales',
-        repo: 'your-github-username/parking-space-sales-management',
+        repo: 'mugisha857/pssms',
         tech: 'Node.js + React'
       },
       {
         name: 'Parking Site Establish',
         value: 'parking_site_establish',
-        repo: 'your-github-username/parking-site-establish',
+        repo: 'mugisha857/parking',
         tech: 'Node.js + React'
       },
       {
         name: 'Car Management System',
         value: 'car_management',
-        repo: 'your-github-username/car-management-system',
+        repo: 'mugisha857/carapp',
         tech: 'Node.js + React'
       },
       {
         name: 'Car Rental Management',
         value: 'car_rental_management',
-        repo: 'your-github-username/car-rental-management',
+        repo: 'mugisha857/car-rental',
         tech: 'Node.js + React'
       }
     ]
@@ -73,19 +72,19 @@ const CATEGORIES = [
       {
         name: 'Employee Payroll Management System',
         value: 'employee_payroll',
-        repo: 'your-github-username/employee-payroll-management',
+        repo: 'mugisha857/epms-app',
         tech: 'Node.js + React'
       },
       {
         name: 'Sales Management System',
         value: 'sales_management',
-        repo: 'your-github-username/sales-management-system',
+        repo: 'mugisha857/srms-app',
         tech: 'Node.js + React'
       },
       {
         name: 'Sales Record Management System',
         value: 'sales_record_management',
-        repo: 'your-github-username/sales-record-management',
+        repo: 'mugisha857/srms-app',
         tech: 'Node.js + React'
       }
     ]
@@ -97,19 +96,19 @@ const CATEGORIES = [
       {
         name: 'Library Management System',
         value: 'library_management',
-        repo: 'your-github-username/library-management-system',
+        repo: 'mugisha857/lms-app',
         tech: 'Node.js + React'
       },
       {
         name: 'Smart Warehouse Control',
         value: 'smart_warehouse_control',
-        repo: 'your-github-username/smart-warehouse-control',
+        repo: 'mugisha857/warehouse',
         tech: 'Node.js + React'
       },
       {
         name: 'School Fee Management Control',
         value: 'school_fee_management',
-        repo: 'your-github-username/school-fee-management-control',
+        repo: 'mugisha857/sfms-app',
         tech: 'Node.js + React'
       }
     ]
@@ -121,13 +120,13 @@ const CATEGORIES = [
       {
         name: 'Pharmacy Expiry Monitor',
         value: 'pharmacy_expiry_monitor',
-        repo: 'your-github-username/pharmacy-expiry-monitor',
+        repo: 'mugisha857/pharmacy',
         tech: 'Node.js + React'
       },
       {
         name: 'Supply Chain Management',
         value: 'supply_chain_management',
-        repo: 'your-github-username/supply-chain-management',
+        repo: 'mugisha857/scms-app',
         tech: 'Node.js + React'
       }
     ]
@@ -138,7 +137,7 @@ const CATEGORIES = [
     projects : [{
       name : 'Fullstack Crud Operation',
       value : 'fullstack_crud_operation',
-      repo : 'your-github-username/fullstack-crud-operation',
+      repo : 'mugisha857/crud-operation',
       tech : 'Node.js + React'
     }]
   }
