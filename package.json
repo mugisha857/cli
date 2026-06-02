@@ -1,0 +1,25 @@
+{
+  "name": "create-joseph-hub",
+  "private": false,
+  "version": "1.0.4",
+  "type": "module",
+  "bin": {
+    "create-joseph-hub": "./bin/cli.js"
+  },
+  "files": [
+    "bin"
+  ],
+  "dependencies": {
+    "@inquirer/prompts": "^7.3.2",
+    "degit": "^2.8.4"
+  },
+  "description": "Enterprise project blueprint scaffolding hub.",
+  "main": "index.js",
+  "keywords": [
+    "cli",
+    "create-app",
+    "scaffolding"
+  ],
+  "author": "MUGISHA Joseph",
+  "license": "ISC"
+}
