@@ -1,25 +1,40 @@
 {
   "name": "create-joseph-hub",
-  "private": false,
   "version": "1.0.7",
+  "description": "Enterprise project blueprint scaffolding hub.",
   "type": "module",
+  "main": "./bin/cli.js",
   "bin": {
     "create-joseph-hub": "./bin/cli.js"
   },
   "files": [
     "bin"
   ],
+  "keywords": [
+    "cli",
+    "scaffolding",
+    "create-app",
+    "generator",
+    "enterprise"
+  ],
+  "author": "MUGISHA Joseph",
+  "license": "MIT",
   "dependencies": {
     "@inquirer/prompts": "^7.3.2",
     "degit": "^2.8.4"
   },
-  "description": "Enterprise project blueprint scaffolding hub.",
-  "main": "index.js",
-  "keywords": [
-    "cli",
-    "create-app",
-    "scaffolding"
-  ],
-  "author": "MUGISHA Joseph",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mugisha857/cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mugisha857/cli/issues"
+  },
+  "homepage": "https://github.com/mugisha857/cli#readme",
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
 }
