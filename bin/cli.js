@@ -166,20 +166,15 @@ const displayHeader = () => {
 `);
 };
 
-const displayFooter = (folderName) => {
-  console.log('\n────────────────────────────────────────────────────────────');
-  console.log('🙏 Thanks for using this tool');
-  console.log('💖 Become a sponsor to support development');
-  console.log('🚀 Join Developer Pay on MTN (MOMO CODE 1 33 94 96)');
-  console.log('────────────────────────────────────────────────────────────\n');
-};
-
 // ============================================
 // PROJECT OPERATIONS
 // ============================================
 
 const cloneProject = async (repo, outputDir) => {
-  const cloner = degit(repo, {
+  // Fix: Force degit to look for the modern default 'main' branch if no branch tag (#) exists
+  const repoTarget = repo.includes('#') ? repo : `${repo}#main`;
+
+  const cloner = degit(repoTarget, {
     cache: false,
     force: true,
     verbose: false
@@ -188,7 +183,6 @@ const cloneProject = async (repo, outputDir) => {
   await cloner.clone(outputDir);
   console.log('\n✅ Project downloaded successfully!');
   console.log(` Created folder: ./${path.basename(outputDir)}`);
-  console.log('You can now install dependencies and start the project.');
 };
 
 const installDependencies = async (outputDir, folderName) => {
@@ -249,10 +243,11 @@ const getFolderName = async (project) => {
 // ============================================
 
 const displaySuccessMessage = (folderName) => {
-  console.log('\n──────────────────────────────────────');
-  console.log('🙏 Thanks for using Joseph\'s Hub');
-  console.log('🚀 Happy Coding!');
-  console.log('──────────────────────────────────────\n');
+  console.log('\n────────────────────────────────────────────────────────────');
+  console.log('🙏 Thanks for using this tool');
+  console.log('💖 Become a sponsor to support development');
+  console.log('🚀 Join Developer Pay on MTN (MOMO CODE 1 33 94 96)');
+  console.log('────────────────────────────────────────────────────────────\n');
 };
 
 const run = async () => {
