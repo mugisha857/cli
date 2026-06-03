@@ -51,6 +51,18 @@ const CATEGORIES = [
         repo: 'mugisha857/parking',
         tech: 'Node.js + React'
       },
+        {
+        name: 'car washing sales management system',
+        value: 'car_washing_sales',
+        repo: 'mugisha857/cwsms-1',
+        tech: 'Node.js + React'
+      },
+        {
+        name: 'Smart Parking Site Establishment System',
+        value: 'parking_site_establish',
+        repo: 'mugisha857/epms-1',
+        tech: 'Node.js + React'
+      },
       {
         name: 'Car Management System',
         value: 'car_management',
@@ -75,6 +87,12 @@ const CATEGORIES = [
         repo: 'mugisha857/epms-app',
         tech: 'Node.js + React'
       },
+       {
+        name: 'Employee management system monitorized (DAB)',
+        value: 'employee_management_monitorized',
+        repo: 'mugisha857/dab-hrms',
+        tech: 'Node.js + React'
+      },
       {
         name: 'Sales Management System',
         value: 'sales_management',
@@ -85,6 +103,12 @@ const CATEGORIES = [
         name: 'Sales Record Management System',
         value: 'sales_record_management',
         repo: 'mugisha857/srms-app',
+        tech: 'Node.js + React'
+      },
+      {
+        name: 'Employee Record Management System',
+        value: 'employee_record_management',
+        repo: 'mugisha857/secondEpms-1',
         tech: 'Node.js + React'
       }
     ]
@@ -139,7 +163,14 @@ const CATEGORIES = [
       value : 'fullstack_crud_operation',
       repo : 'mugisha857/crud-operation',
       tech : 'Node.js + React'
-    }]
+    },
+    {
+      name : 'Practical National Exams (PNE)',
+      value : '(comming soon)',
+      repo : 'mugisha857/pne',
+      tech : 'Node.js + React'
+    }
+  ]
   }
 ];
 
@@ -157,7 +188,7 @@ const displayHeader = () => {
 
 ═══════════════════════════════════════════════════════════════════════
 
-   ✨ 16 Enterprise Blueprints
+   ✨ 20 Enterprise Blueprints
    ✨ Production Progress
    ✨ Modern Tech Stack
    ✨ Rapid Development
