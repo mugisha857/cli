@@ -51,15 +51,15 @@ const CATEGORIES = [
         repo: 'mugisha857/parking',
         tech: 'Node.js + React'
       },
-        {
-        name: 'car washing sales management system',
+      {
+        name: 'Car Washing Sales Management System',
         value: 'car_washing_sales',
         repo: 'mugisha857/cwsms-1',
         tech: 'Node.js + React'
       },
-        {
+      {
         name: 'Smart Parking Site Establishment System',
-        value: 'parking_site_establish',
+        value: 'smart_parking_site_establish',
         repo: 'mugisha857/epms-1',
         tech: 'Node.js + React'
       },
@@ -87,8 +87,8 @@ const CATEGORIES = [
         repo: 'mugisha857/epms-app',
         tech: 'Node.js + React'
       },
-       {
-        name: 'Employee management system monitorized (DAB)',
+      {
+        name: 'Employee Management System Monitorized (DAB)',
         value: 'employee_management_monitorized',
         repo: 'mugisha857/dab-hrms',
         tech: 'Node.js + React'
@@ -156,21 +156,22 @@ const CATEGORIES = [
     ]
   },
   {
-    name : 'Fullstack Crud Operation',
-    value : 'fullstack_crud',
-    projects : [{
-      name : 'Fullstack Crud Operation',
-      value : 'fullstack_crud_operation',
-      repo : 'mugisha857/crud-operation',
-      tech : 'Node.js + React'
-    },
-    {
-      name : 'Practical National Exams (PNE)',
-      value : '2025 - 2026',
-      repo : 'mugisha857/pne',
-      tech : 'Node.js + React'
-    }
-  ]
+    name: 'Fullstack Crud Operation',
+    value: 'fullstack_crud',
+    projects: [
+      {
+        name: 'Fullstack Crud Operation',
+        value: 'fullstack_crud_operation',
+        repo: 'mugisha857/crud-operation',
+        tech: 'Node.js + React'
+      },
+      {
+        name: 'Practical National Exams (PNE)',
+        value: '2025_2026',
+        repo: 'mugisha857/pne',
+        tech: 'Node.js + React'
+      }
+    ]
   }
 ];
 
@@ -180,6 +181,7 @@ const CATEGORIES = [
 
 const displayHeader = () => {
   console.clear();
+
   console.log(`
 ═══════════════════════════════════════════════════════════════════════
 
@@ -202,8 +204,9 @@ const displayHeader = () => {
 // ============================================
 
 const cloneProject = async (repo, outputDir) => {
-  // Fix: Force degit to look for the modern default 'main' branch if no branch tag (#) exists
-  const repoTarget = repo.includes('#') ? repo : `${repo}#main`;
+  const repoTarget = repo.includes('#')
+    ? repo
+    : `${repo}#main`;
 
   const cloner = degit(repoTarget, {
     cache: false,
@@ -212,23 +215,31 @@ const cloneProject = async (repo, outputDir) => {
   });
 
   await cloner.clone(outputDir);
+
   console.log('\n✅ Project downloaded successfully!');
-  console.log(` Created folder: ./${path.basename(outputDir)}`);
+  console.log(`📁 Created folder: ./${path.basename(outputDir)}`);
 };
 
 const installDependencies = async (outputDir, folderName) => {
   const packageJsonPath = path.join(outputDir, 'package.json');
 
   try {
-    await fs.access(packageJsonPath);
+    await fs.stat(packageJsonPath);
+
     console.log('\n📦 Installing dependencies...');
+
     execSync('npm install', {
       cwd: outputDir,
       stdio: 'inherit'
     });
-    console.log(`\n🎉 Ready! Run:\ncd ${folderName} && npm run dev\n`);
+
+    console.log(
+      `\n🎉 Ready! Run:\n\ncd ${folderName}\nnpm run dev\n`
+    );
   } catch {
-    console.log(`\n⚡ No package.json found. Just run:\ncd ${folderName}`);
+    console.log(
+      `\n⚡ No package.json found. Just run:\n\ncd ${folderName}\n`
+    );
   }
 };
 
@@ -239,31 +250,35 @@ const installDependencies = async (outputDir, folderName) => {
 const selectCategory = async () => {
   const categoryValue = await select({
     message: 'Select Enterprise System:',
-    choices: CATEGORIES.map(cat => ({
-      name: cat.name,
-      value: cat.value
+    choices: CATEGORIES.map(category => ({
+      name: category.name,
+      value: category.value
     }))
   });
-  
-  return CATEGORIES.find(c => c.value === categoryValue);
+
+  return CATEGORIES.find(
+    category => category.value === categoryValue
+  );
 };
 
-const selectProject = async (category) => {
+const selectProject = async category => {
   const projectValue = await select({
     message: 'Select Project:',
-    choices: category.projects.map(p => ({
-      name: p.name,
-      value: p.value
+    choices: category.projects.map(project => ({
+      name: project.name,
+      value: project.value
     }))
   });
-  
-  return category.projects.find(p => p.value === projectValue);
+
+  return category.projects.find(
+    project => project.value === projectValue
+  );
 };
 
-const getFolderName = async (project) => {
+const getFolderName = async project => {
   const defaultFolder = project.value.replace(/_/g, '-');
-  
-  return await input({
+
+  return input({
     message: 'Enter folder name:',
     default: defaultFolder
   });
@@ -273,50 +288,58 @@ const getFolderName = async (project) => {
 // MAIN APPLICATION
 // ============================================
 
-const displaySuccessMessage = (folderName) => {
-  console.log('\n────────────────────────────────────────────────────────────');
+const displaySuccessMessage = () => {
+  console.log(
+    '\n────────────────────────────────────────────────────────────'
+  );
   console.log('🙏 Thanks for using this tool');
   console.log('💖 Become a sponsor to support development');
   console.log('🚀 Join Developer Pay on MTN (MOMO CODE 1 33 94 96)');
-  console.log('────────────────────────────────────────────────────────────\n');
+  console.log(
+    '────────────────────────────────────────────────────────────\n'
+  );
 };
 
 const run = async () => {
   displayHeader();
 
   try {
-    // Step 1: Select category
     const category = await selectCategory();
-    
-    // Step 2: Select project
+
     const project = await selectProject(category);
-    
+
     if (!project?.repo) {
-      throw new Error('Repository not found for selected project');
+      throw new Error(
+        'Repository not found for selected project'
+      );
     }
-    
-    // Step 3: Get folder name
+
     const folderName = await getFolderName(project);
-    const outputDir = path.join(process.cwd(), folderName);
-    
-    // Step 4: Display download information
-    console.log(`\n Downloading: ${project.name}`);
-    console.log(`   Location: ./${folderName}\n`);
-    
-    // Step 5: Clone the project
+
+    const outputDir = path.join(
+      process.cwd(),
+      folderName
+    );
+
+    console.log(`\n📥 Downloading: ${project.name}`);
+    console.log(`📂 Location: ./${folderName}\n`);
+
     await cloneProject(project.repo, outputDir);
-    
-    // Step 6: Install dependencies
-    await installDependencies(outputDir, folderName);
-    
-    // Step 7: Display success message
-    displaySuccessMessage(folderName);
-    
+
+    await installDependencies(
+      outputDir,
+      folderName
+    );
+
+    displaySuccessMessage();
   } catch (error) {
-    console.error('\n Error:', error.message);
+    console.error(
+      '\n❌ Error:',
+      error?.message || error
+    );
+
     process.exit(1);
   }
 };
 
-// Start the application
 run();
