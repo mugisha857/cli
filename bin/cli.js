@@ -166,7 +166,7 @@ const CATEGORIES = [
     },
     {
       name : 'Practical National Exams (PNE)',
-      value : '(comming soon)',
+      value : '2025 - 2026',
       repo : 'mugisha857/pne',
       tech : 'Node.js + React'
     }
@@ -300,8 +300,8 @@ const run = async () => {
     const outputDir = path.join(process.cwd(), folderName);
     
     // Step 4: Display download information
-    console.log(`\n📦 Downloading: ${project.name}`);
-    console.log(`📁 Location: ./${folderName}\n`);
+    console.log(`\n Downloading: ${project.name}`);
+    console.log(`   Location: ./${folderName}\n`);
     
     // Step 5: Clone the project
     await cloneProject(project.repo, outputDir);
@@ -313,7 +313,7 @@ const run = async () => {
     displaySuccessMessage(folderName);
     
   } catch (error) {
-    console.error('\n❌ Error:', error.message);
+    console.error('\n Error:', error.message);
     process.exit(1);
   }
 };
